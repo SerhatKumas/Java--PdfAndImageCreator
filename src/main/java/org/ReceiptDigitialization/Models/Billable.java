@@ -12,4 +12,20 @@ public class Billable {
         this.price_per_billable = price_per_billable;
         this.total_billable_price = price_per_billable*billable_quantity;
     }
+
+    public String getBillable_substance() {
+        return billable_substance;
+    }
+
+    public int getBillable_quantity() {
+        return billable_quantity;
+    }
+
+    public double getPrice_per_billable() {
+        return price_per_billable;
+    }
+
+    public double getTotal_billable_price() {
+        return total_billable_price;
+    }
 }

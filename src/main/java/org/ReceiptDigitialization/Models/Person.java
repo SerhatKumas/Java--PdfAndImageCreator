@@ -11,5 +11,17 @@ public class Person {
         this.person_address = person_address;
         this.person_phone = person_phone;
     }
+
+    public String getPerson_name() {
+        return person_name;
+    }
+
+    public String getPerson_address() {
+        return person_address;
+    }
+
+    public String getPerson_phone() {
+        return person_phone;
+    }
 }
 

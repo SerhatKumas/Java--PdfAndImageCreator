@@ -13,4 +13,20 @@ public class Company {
         this.company_phone = company_phone;
         this.company_email = company_email;
     }
+
+    public String getCompany_name() {
+        return company_name;
+    }
+
+    public String getCompany_address() {
+        return company_address;
+    }
+
+    public String getCompany_phone() {
+        return company_phone;
+    }
+
+    public String getCompany_email() {
+        return company_email;
+    }
 }
