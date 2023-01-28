@@ -1,11 +1,14 @@
 package org.ReceiptDigitialization.Models;
 
 public class Billable {
+
+    // Billable properties
     private String billable_substance;
     private int billable_quantity;
     private double price_per_billable;
     private double total_billable_price;
 
+    // Billable constructor
     public Billable(String billable_substance, int billable_quantity, double price_per_billable) {
         this.billable_substance = billable_substance;
         this.billable_quantity = billable_quantity;
@@ -13,6 +16,7 @@ public class Billable {
         this.total_billable_price = price_per_billable*billable_quantity;
     }
 
+    // Billable getters
     public String getBillable_substance() {
         return billable_substance;
     }

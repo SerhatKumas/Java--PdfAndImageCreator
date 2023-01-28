@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Receipt {
+    // Receipt properties
     private final Long receipt_id;
     private String receipt_title;
     private Date receipt_date;
@@ -17,6 +18,7 @@ public class Receipt {
     private String person_address;
     private String person_phone;
 
+    // Receipt Constructors
     public Receipt(Long receipt_id, String receipt_title, Date receipt_date, List<Billable> billable_list, double tax_rate, Company company, Person person) {
         this.receipt_id = receipt_id;
         this.receipt_title = receipt_title;
@@ -31,6 +33,8 @@ public class Receipt {
         this.person_address = person.getPerson_address();
         this.person_phone = person.getPerson_phone();
     }
+
+    // Receipt getter
 
     public Long getReceipt_id() {
         return receipt_id;

@@ -1,17 +1,12 @@
 package org.ReceiptDigitialization.ReceiptDigitizers;
 
 import org.ReceiptDigitialization.Models.Billable;
-import org.ReceiptDigitialization.Models.Company;
-import org.ReceiptDigitialization.Models.Person;
 import org.ReceiptDigitialization.Models.Receipt;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
 
 import javax.imageio.ImageIO;
 
@@ -21,9 +16,12 @@ public class ImageDigitizer implements IDigitizer{
     public void digitizeReceipt(Receipt receipt) {
         //https://examples.javacodegeeks.com/desktop-java/imageio/create-image-file-from-graphics-object/
 
+        // Image size
         int width = 500;
         int height = 800;
+        // Tax price calculation
         double total_without_tax = 0;
+        // Writing new line solution
         int line_counter = 400;
 
         // Constructs a BufferedImage of one of the predefined image types.
@@ -32,15 +30,15 @@ public class ImageDigitizer implements IDigitizer{
         // Create a graphics which can be used to draw into the buffered image
         Graphics2D g2d = bufferedImage.createGraphics();
 
-        // fill all the image with white
+        // Fill all the image with white
         g2d.setColor(Color.white);
         g2d.fillRect(0, 0, width, height);
 
-        // create a string with yellow
+        // Create a string with yellow
         g2d.setColor(Color.black);
         g2d.drawString("Receipt id : "+receipt.getReceipt_id(),50, 120);
         g2d.drawString("Receipt title : "+receipt.getReceipt_title(),50, 140);
-        g2d.drawString("Receipt date : " + java.time.LocalDate.now(),50, 160);
+        g2d.drawString("Receipt date : " + receipt.getReceipt_date(),50, 160);
         g2d.drawString("-----------------------------------------------------",50, 180);
         g2d.drawString("Company Name : " + receipt.getCompany_name(),50, 200);
         g2d.drawString("Company Address : " + receipt.getCompany_address(),50, 220);
@@ -52,6 +50,7 @@ public class ImageDigitizer implements IDigitizer{
         g2d.drawString("Billed to Phone : " + receipt.getPerson_phone(),50, 340);
         g2d.drawString("-----------------------------------------------------",50, 360);
         g2d.drawString("Billable Content | Billable Quantity | Billable Per Price | Billable Total Price ",50, 380);
+        // Billable list writing to image
         for(int i = 0; i < receipt.getBillable_list().size(); i++) {
             Billable bill = receipt.getBillable_list().get(i);
             g2d.drawString(bill.getBillable_substance()+" | "+bill.getBillable_quantity()+" | "+bill.getPrice_per_billable()+" | "+bill.getTotal_billable_price(),50, line_counter);
